@@ -1,0 +1,17 @@
+# Credenciais - NUNCA subir pro GitHub
+credentials/
+*.json
+
+# Python
+__pycache__/
+*.pyc
+.env
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
