@@ -2,10 +2,11 @@ from google.cloud import bigquery
 from dotenv import load_dotenv
 import os
 
-load_dotenv()
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+load_dotenv(os.path.join(BASE_DIR, '.env'))
 
 def get_client():
-    credentials_path = os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
+    credentials_path = os.path.join(BASE_DIR, os.getenv("GOOGLE_APPLICATION_CREDENTIALS"))
     project_id = os.getenv("PROJECT_ID")
     
     client = bigquery.Client.from_service_account_json(
