@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from pydantic import BaseModel
+from pydantic import create_model
 import pickle
 import pandas as pd
 import numpy as np
@@ -12,36 +12,15 @@ load_dotenv()
 
 app = FastAPI(title="Churn Prediction API", version="1.0.0")
 
-# Carrega modelo e scaler
 with open('../models/modelo_churn.pkl', 'rb') as f:
     modelo = pickle.load(f)
 
 with open('../models/scaler_churn.pkl', 'rb') as f:
     scaler = pickle.load(f)
 
-class ClienteData(BaseModel):
-    SeniorCitizen: int
-    Partner: int
-    Dependents: int
-    tenure: float
-    PhoneService: int
-    PaperlessBilling: int
-    MonthlyCharges: float
-    gender_Male: int
-    MultipleLines_Yes: int
-    InternetService_Fiber_optic: int
-    InternetService_No: int
-    OnlineSecurity_Yes: int
-    OnlineBackup_Yes: int
-    DeviceProtection_Yes: int
-    TechSupport_Yes: int
-    StreamingTV_Yes: int
-    StreamingMovies_Yes: int
-    Contract_One_year: int
-    Contract_Two_year: int
-    PaymentMethod_Credit_card_automatic: int
-    PaymentMethod_Electronic_check: int
-    PaymentMethod_Mailed_check: int
+feature_names = modelo.feature_names_in_
+fields = {name: (float, ...) for name in feature_names}
+ClienteData = create_model('ClienteData', **fields)
 
 @app.get("/")
 def root():
