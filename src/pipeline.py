@@ -39,7 +39,7 @@ def run_pipeline():
     
     resultado = pd.DataFrame({
         'customerID': df['customerID'],
-        'probabilidade_churn': probabilidades.round(4),
+        'probabilidade_churn': (probabilidades * 100).round(2),
         'risco': ['Alto' if p >= 0.7 else 'Médio' if p >= 0.4 else 'Baixo' for p in probabilidades],
         'MonthlyCharges': df['MonthlyCharges'],
         'Contract': df['Contract'],
