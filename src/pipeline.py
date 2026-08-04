@@ -45,7 +45,8 @@ def run_pipeline():
         'Contract': df['Contract'],
         'tenure': df['tenure'],
         'InternetService': df['InternetService'],
-        'churn_real': df['Churn'].astype(int)
+        'churn_real': df['Churn'].astype(int),
+        'PaymentMethod': df['PaymentMethod']
     })
 
     job_config = bigquery.LoadJobConfig(write_disposition='WRITE_TRUNCATE')
