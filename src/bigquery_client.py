@@ -1,11 +1,7 @@
 from google.cloud import bigquery
 from google.oauth2 import service_account
-from dotenv import load_dotenv
 import os
 import streamlit as st
-
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-load_dotenv(os.path.join(BASE_DIR, '.env'))
 
 def get_client():
     project_id = os.getenv("PROJECT_ID", "churn-analysis-portfolio")
