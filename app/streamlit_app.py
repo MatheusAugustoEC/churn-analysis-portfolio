@@ -177,7 +177,7 @@ elif pagina == "🔍 Predição Individual":
             "PaymentMethod_Mailed_check": 1 if payment_method == "Mailed_check" else 0
         }
 
-        response = requests.post("http://localhost:8000/predict", json=payload)
+        response = requests.post("https://churn-api-g1y0.onrender.com/predict", json=payload)
         resultado = response.json()
 
         prob = resultado['probabilidade_churn'] * 100
