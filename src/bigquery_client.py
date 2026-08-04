@@ -1,19 +1,18 @@
 from google.cloud import bigquery
+from google.oauth2 import service_account
 from dotenv import load_dotenv
 import os
+import streamlit as st
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 load_dotenv(os.path.join(BASE_DIR, '.env'))
 
 def get_client():
-    credentials_path = os.path.join(BASE_DIR, os.getenv("GOOGLE_APPLICATION_CREDENTIALS"))
-    project_id = os.getenv("PROJECT_ID")
-    
-    client = bigquery.Client.from_service_account_json(
-        credentials_path,
-        project=project_id
+    project_id = os.getenv("PROJECT_ID", "churn-analysis-portfolio")
+    credentials = service_account.Credentials.from_service_account_info(
+        st.secrets["gcp_service_account"]
     )
-    return client
+    return bigquery.Client(credentials=credentials, project=project_id)
 
 def run_query(sql: str):
     client = get_client()
