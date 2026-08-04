@@ -213,14 +213,15 @@ elif pagina == "👥 Clientes em Risco":
 
     # Tabela
     st.dataframe(
-        df_filtrado[['customerID', 'probabilidade_churn', 'risco', 'MonthlyCharges', 'Contract', 'tenure', 'InternetService']].rename(columns={
+        df_filtrado[['customerID', 'probabilidade_churn', 'risco', 'MonthlyCharges', 'Contract', 'tenure', 'InternetService', 'PaymentMethod']].rename(columns={
             'customerID': 'ID Cliente',
             'probabilidade_churn': 'Prob. Churn',
             'risco': 'Risco',
             'MonthlyCharges': 'Mensalidade ($)',
             'Contract': 'Contrato',
             'tenure': 'Meses',
-            'InternetService': 'Internet'
+            'InternetService': 'Internet',
+            'PaymentMethod': 'Pagamento'
         }),
         use_container_width=True,
         hide_index=True
