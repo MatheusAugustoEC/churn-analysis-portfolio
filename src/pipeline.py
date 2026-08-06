@@ -17,8 +17,22 @@ def load_model():
     with open(os.path.join(BASE_DIR, 'models/modelo_churn.pkl'), 'rb') as f:
         return pickle.load(f)
 
+def check_data_quality(client):
+    result = client.query("""
+        SELECT COUNT(*) as erros
+        FROM `churn_dataset.vw_data_quality`
+    """).to_dataframe()
+    
+    erros = result['erros'][0]
+    
+    if erros > 0:
+        raise ValueError(f"Pipeline abortado: {erros} registros inválidos encontrados em churn_dataset.vw_data_quality")
+    
+    print("✅ Validação de qualidade ok — nenhum registro inválido encontrado.")
+
 def run_pipeline():
     client = get_client()
+    check_data_quality(client)
     modelo = load_model()
 
     df = client.query("""
