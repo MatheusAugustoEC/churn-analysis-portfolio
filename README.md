@@ -67,6 +67,22 @@ A **Regressão Logística com SMOTE** foi a vencedora — não por acaso. As rel
 
 ---
 
+## Recomendações de Negócio
+
+Os dados revelam oportunidades concretas de retenção — não apenas padrões estatísticos, mas ações que a empresa pode tomar imediatamente:
+
+- **Migração de contratos mensais para anuais** — clientes mensais têm 15x mais churn que bianuais. Oferecer um desconto progressivo para migração é provavelmente o investimento de retenção com maior retorno disponível. O custo do desconto é uma fração do custo de perder o cliente e readquiri-lo.
+
+- **Investigação urgente da fibra ótica** — 41.9% de churn nesse plano é anômalo, muito acima dos 19% do DSL. Isso indica problema de qualidade percebida, expectativa não atendida ou custo-benefício inadequado. Uma pesquisa de NPS segmentada para esses clientes deve ser prioridade antes de qualquer campanha de retenção.
+
+- **Programa de onboarding nos primeiros 60 dias** — o período crítico é o início do relacionamento. Um contato proativo nos primeiros dois meses — seja por suporte dedicado, tutoriais ou check-ins de satisfação — pode reduzir significativamente o churn total, já que a maioria dos cancelamentos ocorre nessa janela.
+
+- **Incentivo ao débito automático** — clientes que pagam por cheque eletrônico cancelam 45.3% das vezes, contra 15-16% dos que usam cartão ou transferência automática. Oferecer um desconto na mensalidade para quem migrar para débito automático reduz a fricção de saída e aumenta o vínculo com o serviço.
+
+- **Atenção especial ao público idoso** — 41.7% de churn contra 23.6% dos não idosos. Esse grupo provavelmente enfrenta dificuldades com o serviço ou não percebe o valor adequadamente. Um canal de atendimento diferenciado ou planos simplificados para esse perfil pode ser um diferencial competitivo relevante.
+
+---
+
 ## Stack Técnica
 
 | Camada | Tecnologia |
