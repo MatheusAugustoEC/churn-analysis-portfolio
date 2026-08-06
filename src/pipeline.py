@@ -33,6 +33,7 @@ def check_data_quality(client):
 def run_pipeline():
     client = get_client()
     check_data_quality(client)
+    check_data_quality(client)
     modelo = load_model()
 
     df = client.query("""
