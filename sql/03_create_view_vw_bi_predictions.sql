@@ -1,7 +1,7 @@
 CREATE OR REPLACE VIEW `churn_dataset.vw_bi_predictions` AS
 SELECT
   p.customerID,
-  p.probabilidade_churn,
+  ROUND(p.probabilidade_churn / 100, 4) AS probabilidade_churn,
   p.risco,
   p.churn_real,
   CASE p.churn_real WHEN 1 THEN 'Churn' ELSE 'Ativo' END AS status_churn,
@@ -49,3 +49,5 @@ SELECT
 FROM `churn_dataset.churn_predictions` p
 LEFT JOIN `churn_dataset.customers_cleaned` c
   ON p.customerID = c.customerID
+
+
